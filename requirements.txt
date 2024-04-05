@@ -9,3 +9,5 @@ gensim
 underthesea
 SpeechRecognition
 pyaudio
+scipy
+smart-open
