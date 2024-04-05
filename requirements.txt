@@ -11,3 +11,5 @@ SpeechRecognition
 pyaudio
 scipy
 smart-open
+Cython
+FuzzyTM
