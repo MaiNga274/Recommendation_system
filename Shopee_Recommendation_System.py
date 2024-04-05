@@ -6,8 +6,6 @@ import streamlit as st
 import pandas as pd
 import utils
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
 warnings.filterwarnings("ignore", category=FutureWarning)
@@ -17,6 +15,9 @@ pd.options.display.float_format = '{:.2f}'.format
 # ====================== Definitions and functions ====================== #
 # --- Data path ---
 ImgPath = './Picture/'
+DataPath                  = './Data/'
+ProductFileName           = 'Products_ThoiTrangNam_raw.csv'
+ProductRatingFileName     = 'Products_ThoiTrangNam_rating_raw.csv'
 BrandImg                  = os.path.join(ImgPath, "Shopee_Logo.png")
 RecommendationImg         = os.path.join(ImgPath, "Recommendation_system.png")
 CollaUserItemImg          = os.path.join(ImgPath, "CollaborativeFiltering_UserBased_ItemBased.png")
@@ -25,6 +26,8 @@ No_Image_Available        = os.path.join(ImgPath, "No_Image_Available.jpg")
 Pie_Chart                 = os.path.join(ImgPath, "pie_chart.png")
 Sub_Category              = os.path.join(ImgPath, "sub_category.png")
 Rating                    = os.path.join(ImgPath, "Rating.png")
+ProductFilePath           = os.path.join(DataPath, ProductFileName)
+ProductRatingFilePath     = os.path.join(DataPath, ProductRatingFileName)
 # --- For GUI ---
 BussinessObjective        = "Business Objective"
 ContentBasedFiltering     = "Content-based Filtering"
@@ -408,7 +411,7 @@ def main():
     st.image(CollaUserItemImg, width=800)
     # --- Đọc dữ liệu và EDA ---
     st.write("## Đọc dữ liệu và EDA")
-    df1 = pd.read_csv("Data\Products_ThoiTrangNam_raw.csv")
+    df1 = pd.read_csv(ProductFilePath, encoding='utf8', header=0)
     st.write("Đọc dữ liệu Products_ThoiTrangNam_raw:")
     st.write(df1)
     st.write("Mô tả dữ liệu: ")
@@ -422,7 +425,7 @@ def main():
     st.write("Biểu đồ trực quan tỷ lệ các sản phẩm: ")
     st.image(Pie_Chart, width=800)
     
-    df2 = pd.read_csv("Data\Products_ThoiTrangNam_rating_raw.csv")
+    df2 = pd.read_csv(ProductRatingFilePath, encoding='utf8', header=0, sep='\t')
     st.write("Đọc dữ liệu Products_ThoiTrangNam_rating_raw:")
     st.write(df2)
     st.write("Mô tả dữ liệu: ")
