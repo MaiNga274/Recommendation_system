@@ -8,7 +8,9 @@ import os
 import pandas as pd
 import numpy as np
 # Gemsim & Cosine Similarity
-from gensim import corpora, models, similarities
+from gensim import corpora
+from gensim import models
+from gensim import similarities
 
 
 
